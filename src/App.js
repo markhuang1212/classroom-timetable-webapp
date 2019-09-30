@@ -56,18 +56,16 @@ function App() {
                         <i className="material-icons" ref={searchButton} onClick={() => onSearch()}>arrow_forward</i>
                     </div>
                     <div className="AppResult">
-                        {results.map(v => {
-                            return (
-                                <div className="ResultItem">
-                                    <div className="RoomNo">{v.room}</div>
-                                    <div className="FreeUntilCont">
-                                        <div>Free Until:</div>
-                                        <div>{v.until}</div>
-                                    </div>
-                                    <i class="material-icons">keyboard_arrow_right</i>
+                        {results.map(v => (
+                            <div className="ResultItem">
+                                <div className="RoomNo">{v.room}</div>
+                                <div className="FreeUntilCont">
+                                    <div>Free Until:</div>
+                                    <div>{v.until}</div>
                                 </div>
-                            )
-                        })}
+                                <i class="material-icons">keyboard_arrow_right</i>
+                            </div>
+                        ))}
 
                     </div>
                 </div>
