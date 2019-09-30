@@ -90,6 +90,28 @@
     font-weight: 700;
 }
 
+.ResultItem {
+    display: flex;
+    align-items: center;
+    padding: 8px 24px;
+    font-weight: 600;
+}
+
+.ResultItem .RoomNo {
+    font-size: 28px;
+    flex: 1;
+}
+
+.ResultItem .FreeUntilCont {
+    font-size: 13px;
+    line-height: 1;
+    text-align: right;
+}
+
+.ResultItem i {
+    font-size: 32px;
+}
+
 @media(min-width:426px) {
     .scrollable {
         padding: 0px calc((100% - 360px)/2) !important;
