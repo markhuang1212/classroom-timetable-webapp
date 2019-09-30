@@ -30,23 +30,26 @@ function App() {
                 <div><span>Free Classroom&nbsp;</span>@ UST</div>
             </div>
             <div className="AppContent">
-                <div className="AppModeSelector">
+                <div className="scrollable">
+                    <div className="AppModeSelector">
+                        <span onClick={() => switchMode()}
+                            className={
+                                searchMode === 'quick' ? 'current' : 'non-current'
+                            }>Quick</span>&nbsp;|&nbsp;
                     <span onClick={() => switchMode()}
-                        className={
-                            searchMode === 'quick' ? 'current' : 'non-current'
-                        }>Quick</span>&nbsp;|&nbsp;
-                    <span onClick={() => switchMode()}
-                        className={
-                            searchMode === 'advanced' ? 'current' : 'non-current'
-                        }>Advanced</span>
+                            className={
+                                searchMode === 'advanced' ? 'current' : 'non-current'
+                            }>Advanced</span>
+                    </div>
+                    <div className="AppSearchBox">
+                        <input ref={searchInput} value={inputText} onChange={e => setInputText(e.target.value)}></input>
+                        <i className="material-icons" ref={searchButton} onClick={() => onSearch()}>arrow_forward</i>
+                    </div>
+                    <div className="AppResult">
+                        Result Shows Here.
+                    </div>
                 </div>
-                <div className="AppSearchBox">
-                    <input ref={searchInput} value={inputText} onChange={e => setInputText(e.target.value)}></input>
-                    <i className="material-icons" ref={searchButton} onClick={() => onSearch()}>arrow_forward</i>
-                </div>
-                <div className="AppResult">
-                    Result Shows Here.
-                </div>
+
             </div>
         </div>
     );
