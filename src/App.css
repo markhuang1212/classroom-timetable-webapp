@@ -81,4 +81,7 @@
     .AppContent {
         padding: 0px calc((100% - 360px)/2);
     }
+    .AppBar div{
+        margin-left: 48px;
+    }
 }
