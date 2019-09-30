@@ -1,3 +1,64 @@
 .App {
-  text-align: center;
+    /* text-align: center; */
+    background: #1C1C1C;
+    color: white;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.AppBar {
+    background: #303030;
+    font-size: 19px;
+    height: 64px;
+    color: #F5F5F5;
+    display: flex;
+    align-items: center;
+}
+
+.AppBar span {
+    overflow: scroll;
+}
+
+.AppContent {
+    height: calc(100% - 64px);
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.AppModeSelector {
+    align-self: center;
+    margin-top: 96px;
+}
+
+.AppModeSelector .current {
+    font-weight: 500;
+}
+
+.AppModeSelector .non-current {
+    color: #7F7F7F;
+}
+
+.AppSearchBox {
+    height: 40px;
+    width: 200px;
+    margin-top: 8px;
+    border-radius: 8px;
+    background: #494949;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    padding: 0px 12px 0px 24px;
+}
+
+.AppSearchBox input {
+    align-self: stretch;
+    background: none;
+    outline: none;
+    border: none;
+    color:white;
+    font-size: 16px;
 }
