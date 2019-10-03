@@ -2,14 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import dataFilter from './data-filter'
 import './App.css';
 
-const egResult = [{
-    room: 'ROOM 4502',
-    until: '14:30'
-}, {
-    room: 'G101, CYT',
-    until: '12:30'
-}]
-
 function App() {
     const [searchMode, setSearchMode] = useState('quick')
     const [inputText, setInputText] = useState('')
