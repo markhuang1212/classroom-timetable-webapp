@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import dataFilter from './data-filter'
 import './App.css';
 
 const egResult = [{
@@ -17,12 +18,20 @@ function App() {
     const searchButton = useRef(null)
 
     const switchMode = () => {
-        setSearchMode(searchMode === 'quick' ? 'advanced' : 'quick')
+        // setSearchMode(searchMode === 'quick' ? 'advanced' : 'quick')
+        alert('The advance feature is still under development.')
     }
 
     const onSearch = () => {
         console.log(`Search: ${inputText}`)
-        setResults(egResult)
+        setResults(dataFilter().map(v => {
+            return {
+                // room: v.split(',')[0].replace('Lecture Theater ', 'LT').split(' (')[0],
+                room: v.split(', ')[0].split(' (')[0].replace('Lecture Theater ', 'LT'),
+                desc: v.split(', ')[1] ? v.split(', ')[1].split(' (')[0] : '',
+                until: 'Unknown'
+            }
+        }))
     }
 
     useEffect(() => {
@@ -56,14 +65,17 @@ function App() {
                         <i className="material-icons" ref={searchButton} onClick={() => onSearch()}>arrow_forward</i>
                     </div>
                     <div className="AppResult">
-                        {results.map(v => (
-                            <div className="ResultItem">
-                                <div className="RoomNo">{v.room}</div>
+                        {results.map((v, i) => (
+                            <div className="ResultItem" key={i}>
+                                <div className="LeftCont">
+                                    <div className="RoomNo">{v.room}</div>
+                                    <div className="RoomDesc">{v.desc}</div>
+                                </div>
                                 <div className="FreeUntilCont">
                                     <div>Free Until:</div>
                                     <div>{v.until}</div>
                                 </div>
-                                <i class="material-icons">keyboard_arrow_right</i>
+                                <i className="material-icons">keyboard_arrow_right</i>
                             </div>
                         ))}
 
@@ -72,7 +84,7 @@ function App() {
 
             </div>
         </div>
-    );
+    )
 }
 
 export default App;

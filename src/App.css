@@ -56,7 +56,7 @@
 .AppSearchBox {
     height: 44px;
     /* width: calc(100% - 80px); */
-    margin-top: 8px;
+    margin: 8px 0px;
     border-radius: 8px;
     background: #494949;
     /* align-self: center; */
@@ -80,26 +80,21 @@
     cursor: default;
 }
 
-.AppAbout .name {
-    color: #909090;
-    
-}
-
-.AppAbout .github {
-    color: #7B7B7B;
-    font-weight: 700;
-}
-
 .ResultItem {
     display: flex;
     align-items: center;
     padding: 8px 24px;
     font-weight: 600;
+    cursor: default;
+}
+
+.ResultItem .LeftCont {
+    flex: 1
 }
 
 .ResultItem .RoomNo {
     font-size: 28px;
-    flex: 1;
+    line-height: 1.2;
 }
 
 .ResultItem .FreeUntilCont {
@@ -116,7 +111,7 @@
     .scrollable {
         padding: 0px calc((100% - 360px)/2) !important;
     }
-    .AppBar div{
+    .AppBar div {
         margin-left: 48px;
     }
 }
