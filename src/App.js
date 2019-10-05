@@ -9,6 +9,16 @@ function App() {
     const searchInput = useRef(null)
     const searchButton = useRef(null)
     const noticeBox = useRef(null)
+    const aboutBox = useRef(null)
+
+
+    const onAppScroll = e => {
+        if (e.target.scrollTop > 100) {
+            aboutBox.current.style.opacity = '0'
+        } else {
+            aboutBox.current.style.opacity = '1'
+        }
+    }
 
     useEffect(() => {
 
@@ -35,7 +45,7 @@ function App() {
             <div className="AppBar">
                 <div><span>Free Classroom&nbsp;</span>@ UST</div>
             </div>
-            <div className="AppContent">
+            <div className="AppContent" onScroll={e => onAppScroll(e)}>
                 <div className="scrollable">
                     <div className="AppNoticeCont">
                         <div ref={noticeBox} className="AppIntroNotice">
@@ -76,6 +86,9 @@ function App() {
                     </div>
                 </div>
 
+            </div>
+            <div className="AboutThisApp" ref={aboutBox}>
+                ABOUT
             </div>
         </div>
     )
