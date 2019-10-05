@@ -13,12 +13,12 @@ function App() {
     useEffect(() => {
 
         const day = (new Date()).getDay()
-        if (day == 6 || day == 7) {
+        if (day == 6 || day == 0) {
             noticeBox.current.style.display = 'block'
         }
 
         const filteredData = dataFilter()
-        
+
         setNumOfFree(filteredData.filter(v => v.room != 'TBA').length)
         setResults(filteredData.map(v => {
             return {
