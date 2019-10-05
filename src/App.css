@@ -37,25 +37,19 @@
     align-items: stretch;
 }
 
-.AppModeSelector {
+.AppNoticeBox {
     align-self: center;
-    margin-top: 96px;
+    margin: 40px 0px;
     cursor: default;
-    ;
-}
-
-.AppModeSelector .current {
-    font-weight: 600;
-}
-
-.AppModeSelector .non-current {
-    color: #7F7F7F;
+    font-size: 37px;
+    font-weight: 700;
+    text-align: center
 }
 
 .AppSearchBox {
     height: 44px;
     /* width: calc(100% - 80px); */
-    margin: 8px 0px;
+    margin-bottom: 16px;
     border-radius: 8px;
     background: #494949;
     /* align-self: center; */

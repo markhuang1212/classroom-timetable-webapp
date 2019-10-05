@@ -3,16 +3,11 @@ import dataFilter from './data-filter'
 import './App.css';
 
 function App() {
-    const [searchMode, setSearchMode] = useState('quick')
     const [inputText, setInputText] = useState('')
     const [results, setResults] = useState([])
+    const [numOfFree,setNumOfFree]=useState(0)
     const searchInput = useRef(null)
     const searchButton = useRef(null)
-
-    const switchMode = () => {
-        // setSearchMode(searchMode === 'quick' ? 'advanced' : 'quick')
-        alert('The advance feature is still under development.')
-    }
 
     const onSearch = () => {
         console.log(`Search: ${inputText}`)
@@ -33,6 +28,17 @@ function App() {
                 searchButton.current.click()
             }
         })
+
+        const filteredData = dataFilter()
+        setNumOfFree(filteredData.length)
+        setResults(filteredData.map(v => {
+            return {
+                // room: v.split(',')[0].replace('Lecture Theater ', 'LT').split(' (')[0],
+                room: v.room.split(', ')[0].split(' (')[0].replace('Lecture Theater ', 'LT'),
+                desc: v.room.split(', ')[1] ? v.room.split(', ')[1].split(' (')[0] : '',
+                until: 'Unknown'
+            }
+        }))
     }, [])
 
     return (
@@ -42,34 +48,34 @@ function App() {
             </div>
             <div className="AppContent">
                 <div className="scrollable">
-                    <div className="AppModeSelector">
-                        <span onClick={() => switchMode()}
-                            className={
-                                searchMode === 'quick' ? 'current' : 'non-current'
-                            }>Quick Search</span>&nbsp;|&nbsp;
-                    <span onClick={() => switchMode()}
-                            className={
-                                searchMode === 'advanced' ? 'current' : 'non-current'
-                            }>Advanced</span>
+                    <div className="AppNoticeBox">
+                        {numOfFree} Classrooms <br/>
+                        is free.
                     </div>
                     <div className="AppSearchBox">
-                        <input ref={searchInput} value={inputText} onChange={e => setInputText(e.target.value)}></input>
+                        <input ref={searchInput} 
+                            value={inputText} 
+                            onChange={e => setInputText(e.target.value)}
+                            placeholder="Search by Lift/Building"></input>
                         <i className="material-icons" ref={searchButton} onClick={() => onSearch()}>arrow_forward</i>
                     </div>
                     <div className="AppResult">
-                        {results.map((v, i) => (
-                            <div className="ResultItem" key={i}>
-                                <div className="LeftCont">
-                                    <div className="RoomNo">{v.room}</div>
-                                    <div className="RoomDesc">{v.desc}</div>
+                        {results.map((v, i) => {
+                            let hr = i < results.length - 1 ? (<hr />) : ''
+                            return (
+                                <div className="ResultItem" key={i}>
+                                    <div className="LeftCont">
+                                        <div className="RoomNo">{v.room}</div>
+                                        <div className="RoomDesc">{v.desc}</div>
+                                    </div>
+                                    <div className="FreeUntilCont">
+                                        <div>Free Until:</div>
+                                        <div>{v.until}</div>
+                                    </div>
+                                    <i className="material-icons">keyboard_arrow_right</i>
                                 </div>
-                                <div className="FreeUntilCont">
-                                    <div>Free Until:</div>
-                                    <div>{v.until}</div>
-                                </div>
-                                <i className="material-icons">keyboard_arrow_right</i>
-                            </div>
-                        ))}
+                            )
+                        })}
 
                     </div>
                 </div>

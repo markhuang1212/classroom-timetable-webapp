@@ -9,6 +9,11 @@ const getTimeTable = () => {
             timeTable[data.room] = [data.time]
         }
     })
+    let size = 0
+    for(let key in timeTable){
+        size++
+    }
+    console.log(size)
     return timeTable
 }
 
@@ -52,17 +57,17 @@ const dataFilter = (date = new Date()) => {
     const freeClassroomList = []
     for (let roomname in filteredTimeTable) {
         let free = true
-        for(let i=0;i<filteredTimeTable[roomname].length;i++){
+        for (let i = 0; i < filteredTimeTable[roomname].length; i++) {
             let session = filteredTimeTable[roomname][i]
-            if(now>=session.split(' ')[0] && now<=session.split(' ')[1]){
+            if (now >= session.split(' ')[0] && now <= session.split(' ')[1]) {
                 free = false
             }
         }
-        if(free){
-            freeClassroomList.push(roomname)
+        if (free) {
+            freeClassroomList.push({ room: roomname, until: '13:30' })
         }
     }
-
+    console.log(freeClassroomList)
     return freeClassroomList
 }
 
