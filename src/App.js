@@ -18,13 +18,14 @@ function App() {
         }
 
         const filteredData = dataFilter()
+        
         setNumOfFree(filteredData.filter(v => v.room != 'TBA').length)
         setResults(filteredData.map(v => {
             return {
                 // room: v.split(',')[0].replace('Lecture Theater ', 'LT').split(' (')[0],
                 room: v.room.split(', ')[0].split(' (')[0].replace('Lecture Theater ', 'LT'),
                 desc: v.room.split(', ')[1] ? v.room.split(', ')[1].split(' (')[0] : '',
-                until: 'Unknown'
+                until: v.until
             }
         }))
     }, [])
