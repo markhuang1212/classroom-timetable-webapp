@@ -37,13 +37,25 @@
     align-items: stretch;
 }
 
-.AppNoticeBox {
+.AppNoticeCont {
     align-self: center;
-    margin: 40px 0px;
+    margin: 48px 0px;
     cursor: default;
+    text-align: center;
+}
+
+.AppIntroNotice{
+    border-style: solid;
+    border-width: 0.5px;
+    border-radius: 8px;
+    padding:12px;
+    margin-bottom: 16px;
+    display: none;
+}
+
+.AppClassroomNotice{
     font-size: 37px;
     font-weight: 700;
-    text-align: center
 }
 
 .AppSearchBox {
@@ -110,5 +122,8 @@
     }
     .AppBar div {
         margin-left: 48px;
+    }
+    .AppNoticeCont {
+        margin: 64px 0px;
     }
 }
