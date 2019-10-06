@@ -79,9 +79,13 @@
     background: none;
     outline: none;
     border: none;
-    color: white;
+    color: rgb(166,166,166);
     flex: 1;
     font-size: 21px;
+}
+
+.MainPage .AppSearchBox input::placeholder {
+    color: white;
 }
 
 .MainPage .AppSearchBox i {
