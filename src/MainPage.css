@@ -41,7 +41,7 @@
 
 .MainPage .AppNoticeCont {
     align-self: center;
-    margin: 48px 0px;
+    margin: 60px 0px;
     cursor: default;
     text-align: center;
 }
@@ -53,6 +53,7 @@
     padding: 12px;
     margin-bottom: 24px;
     display: none;
+    font-weight: 500;
     color: #65CC2F;
 }
 
@@ -182,6 +183,6 @@
         margin-left: 64px;
     }
     .MainPage .AppNoticeCont {
-        margin: 64px 0px;
+        margin: 72px 0px;
     }
 }

@@ -50,7 +50,7 @@ const formatTime = data => data.map(v => {
 
 const dataFilter = (date = new Date()) => {
     // date for debugging
-    date = new Date(2019, 10, 4, 10, 45, 0, 0)
+    // date = new Date(2019, 10, 4, 10, 45, 0, 0)
 
     const timeTable = getTimeTable()
     let filteredTimeTable = {}

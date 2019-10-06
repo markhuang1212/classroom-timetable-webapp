@@ -101,7 +101,7 @@ const MainPage = props => {
 
             </div>
             <div className="AboutCont" ref={aboutBox}>
-                <div className="AboutThisApp">
+                <div className="AboutThisApp" onClick={()=>window.open('https://github.com/markhuang1212/classroom-webapp#classroom-webapp','_blank')}>
                     ABOUT THIS APP
                 </div>
             </div>
