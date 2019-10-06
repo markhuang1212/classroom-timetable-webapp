@@ -9,15 +9,19 @@ import './App.css';
 function App() {
     const [detailRoom, setDetailRoom] = useState({})
 
+    useEffect(() => {
+        document.querySelector('.splash').style.opacity = '0'
+        document.querySelector('#root').style.opacity = '1'
+    }, [])
 
     return (
         <HashRouter>
             <Switch>
                 <Route path="/detail">
-                    <DetailPage detailRoom={detailRoom}/>
+                    <DetailPage detailRoom={detailRoom} />
                 </Route>
                 <Route path="/">
-                    <MainPage onDetail={i=>setDetailRoom(i)}/>
+                    <MainPage onDetail={i => setDetailRoom(i)} />
                 </Route>
             </Switch>
         </HashRouter>

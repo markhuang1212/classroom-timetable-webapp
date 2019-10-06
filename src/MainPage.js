@@ -6,6 +6,7 @@ const MainPage = props => {
     const [inputText, setInputText] = useState('')
     const [results, setResults] = useState([])
     const [numOfFree, setNumOfFree] = useState(0)
+    const [filter, setFilter] = useState(true)
     const searchInput = useRef(null)
     const searchButton = useRef(null)
     const noticeBox = useRef(null)
@@ -34,14 +35,16 @@ const MainPage = props => {
 
         const filteredData = dataFilter()
 
-        setNumOfFree(filteredData.filter(v => v.room != 'TBA').length)
+        setNumOfFree(filteredData.filter(v => v.room != 'TBA' && v.free).length)
+
         setResults(filteredData.map(v => {
             return {
                 // room: v.split(',')[0].replace('Lecture Theater ', 'LT').split(' (')[0],
                 raw: v.room,
                 room: v.room.split(', ')[0].split(' (')[0].replace('Lecture Theater ', 'LT'),
                 desc: v.room.split(', ')[1] ? v.room.split(', ')[1].split(' (')[0] : '',
-                until: v.until
+                until: v.until,
+                free: v.free
             }
         }))
     }, [])
@@ -69,9 +72,11 @@ const MainPage = props => {
                             placeholder="Lift/Building/Room"></input>
                         <i className="material-icons" ref={searchButton}>arrow_forward</i>
                     </div>
+                    <div className="AppFilterButton" onClick={() => setFilter(!filter)}>Filter: {filter ? 'Free Classroom' : 'All'}</div>
                     <div className="AppResult">
                         {results.filter(v => v.room.toUpperCase().includes(inputText.toUpperCase()) || v.desc.toUpperCase().includes(inputText.toUpperCase()))
                             .filter(v => v.room != 'TBA')
+                            .filter(v => !filter || v.free)
                             .map((v, i) => {
                                 let hr = i < results.length - 1 ? (<hr />) : ''
                                 return (
@@ -81,8 +86,10 @@ const MainPage = props => {
                                             <div className="RoomDesc">{v.desc}</div>
                                         </div>
                                         <div className="FreeUntilCont">
-                                            <div>Free Until:</div>
-                                            <div>{v.until}</div>
+                                            {/* <div>Free Until:</div>
+                                            <div>{v.until}</div> */}
+                                            {v.free ? (<div>Free Until: <br />{v.until}</div>) : <div>In Use</div>}
+
                                         </div>
                                         <i className="material-icons">keyboard_arrow_right</i>
                                     </div>

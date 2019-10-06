@@ -59,7 +59,7 @@ const dataFilter = (date = new Date()) => {
     const minute = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()
     const now = `${hour}${minute}`
 
-    const freeClassroomList = []
+    const classroomList = []
     for (let roomname in filteredTimeTable) {
         let free = true
         for (let i = 0; i < filteredTimeTable[roomname].length; i++) {
@@ -77,10 +77,16 @@ const dataFilter = (date = new Date()) => {
                     return
                 }
             })
-            freeClassroomList.push({ room: roomname, until })
+            classroomList.push({ room: roomname, free: true, until })
+        } else {
+            classroomList.push({room:roomname,free:false})
         }
     }
-    return freeClassroomList
+    return classroomList
+}
+
+const formatData = data => {
+
 }
 
 export default dataFilter

@@ -1,5 +1,4 @@
 .MainPage {
-    /* text-align: center; */
     color: white;
     position: fixed;
     left: 0px;
@@ -60,7 +59,7 @@
 .MainPage .AppClassroomNotice {
     font-size: 37px;
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .MainPage .AppSearchBox {
@@ -88,6 +87,14 @@
 .MainPage .AppSearchBox i {
     font-size: 27px;
     cursor: default;
+}
+
+.MainPage .AppFilterButton {
+    margin-left: 24px;
+    font-weight: 700;
+    color: #65CC2F;
+    cursor: pointer;
+    width: auto;
 }
 
 .MainPage .AppResult {
@@ -150,6 +157,9 @@
 @media(hover:hover){
     .MainPage .ResultItem:hover {
         background-color: #494949;
+    }
+    .MainPage .AppFilterButton:hover {
+        opacity: 0.6;
     }
 }
 
