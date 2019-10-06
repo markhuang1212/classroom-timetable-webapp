@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { HashRouter, Route, Switch, Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { HashRouter, Route, Switch } from 'react-router-dom'
 
 import MainPage from './MainPage.js'
 import DetailPage from './DetailPage.js'

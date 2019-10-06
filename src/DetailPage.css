@@ -74,6 +74,10 @@
     margin: 0px;
 }
 
+.DetailPage .TimeViewer .ViewerBody i[disabled] {
+    opacity: 0.5;
+}
+
 .DetailPage .ViewerDiag {
     flex: 1;
     height: 360px;
@@ -83,13 +87,19 @@
 }
 
 .DetailPage .textLeft {
+    position: relative;
     color: #878787;
     align-self: stretch;
     margin-right: 4px;
+    font-size: 10pt;
+    width: 35px;
 }
 
 .DetailPage .textRight {
-    width: 26px;
+    position: relative;
+    width: 35px;
+    font-size: 10pt;
+    width: 35px;
     align-self: stretch;
     color: #65CC2F;
     margin-left: 4px;
