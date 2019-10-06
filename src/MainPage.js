@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import dataFilter from './data-filter'
+import {dataFilter} from './data-filter'
 import './MainPage.css'
 
 const MainPage = props => {
@@ -100,8 +100,10 @@ const MainPage = props => {
                 </div>
 
             </div>
-            <div className="AboutThisApp" ref={aboutBox}>
-                ABOUT
+            <div className="AboutCont" ref={aboutBox}>
+                <div className="AboutThisApp">
+                    ABOUT THIS APP
+                </div>
             </div>
         </div>
     )

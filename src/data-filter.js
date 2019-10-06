@@ -9,12 +9,13 @@ const getTimeTable = () => {
             timeTable[data.room] = [data.time]
         }
     })
+    console.log(timeTable)
     return timeTable
 }
 
 const dataFilter = (date = new Date()) => {
     // date for debugging
-    // date = new Date(2019, 10, 4, 10, 45, 0, 0)
+    date = new Date(2019, 10, 4, 10, 45, 0, 0)
 
     const timeTable = getTimeTable()
     let filteredTimeTable = {}
@@ -26,8 +27,10 @@ const dataFilter = (date = new Date()) => {
         4: 'Th',
         5: 'Fr'
     }
+
     for (let roomname in timeTable) {
-        filteredTimeTable[roomname] = timeTable[roomname].filter(time => time.includes(dayTable[date.getDay()]))
+        filteredTimeTable[roomname] = timeTable[roomname]
+            .filter(time => time.includes(dayTable[date.getDay()]))
             .map(v => v.slice(v.length - 17))
             .map(v => {
                 let [fst, sec] = v.split(' - ')
@@ -37,7 +40,7 @@ const dataFilter = (date = new Date()) => {
                     fst = fst.replace('AM', '')
                 } else {
                     fst = fst.replace('PM', '')
-                    if (fst != "1200") {
+                    if (parseInt(fst) < 1200) {
                         fst = parseInt(fst) + 1200
                     }
                 }
@@ -45,7 +48,7 @@ const dataFilter = (date = new Date()) => {
                     sec = sec.replace('AM', '')
                 } else {
                     sec = sec.replace('PM', '')
-                    if (sec != '1200') {
+                    if (parseInt(sec) < 1200) {
                         sec = parseInt(sec) + 1200
                     }
                 }
@@ -79,14 +82,10 @@ const dataFilter = (date = new Date()) => {
             })
             classroomList.push({ room: roomname, free: true, until })
         } else {
-            classroomList.push({room:roomname,free:false})
+            classroomList.push({ room: roomname, free: false })
         }
     }
     return classroomList
 }
 
-const formatData = data => {
-
-}
-
-export default dataFilter
+export { dataFilter, getTimeTable }

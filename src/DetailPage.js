@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './DetailPage.css'
+import { getTimeTable } from './data-filter.js'
 
 const DetailPage = props => {
+
+    const [timetable, setTimetable] = useState(getTimeTable())
+
     const onBack = () => {
         window.location.hash = '/'
     }
@@ -15,6 +19,10 @@ const DetailPage = props => {
             <div className="AppContent">
                 <div className="scrollable">
                     {props.detailRoom.raw}
+                    <div>
+                        {JSON.stringify(timetable[props.detailRoom.raw])}
+                    </div>
+
                 </div>
             </div>
         </div>
