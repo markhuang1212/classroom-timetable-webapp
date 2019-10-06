@@ -1,0 +1,166 @@
+.MainPage {
+    /* text-align: center; */
+    color: white;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+}
+
+.MainPage .AppBar {
+    cursor: default;
+    background: #303030;
+    font-size: 19px;
+    height: 64px;
+    color: #F5F5F5;
+    display: flex;
+    align-items: center;
+}
+
+.MainPage .AppBar div {
+    margin-left: 16px;
+    cursor: default;
+}
+
+.MainPage .AppBar span {
+    font-weight: 600;
+}
+
+.MainPage .AppContent {
+    height: calc(100% - 64px);
+    overflow: scroll;
+}
+
+.MainPage .AppContent .scrollable {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 16px;
+    align-items: stretch;
+}
+
+.MainPage .AppNoticeCont {
+    align-self: center;
+    margin: 48px 0px;
+    cursor: default;
+    text-align: center;
+}
+
+.MainPage .AppIntroNotice {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 24px;
+    display: none;
+    color: #65CC2F;
+}
+
+.MainPage .AppClassroomNotice {
+    font-size: 37px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.MainPage .AppSearchBox {
+    height: 44px;
+    /* width: calc(100% - 80px); */
+    margin-bottom: 16px;
+    border-radius: 8px;
+    background: #494949;
+    /* align-self: center; */
+    display: flex;
+    align-items: center;
+    padding: 0px 24px;
+}
+
+.MainPage .AppSearchBox input {
+    min-width: 100px;
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+    flex: 1;
+    font-size: 21px;
+}
+
+.MainPage .AppSearchBox i {
+    font-size: 27px;
+    cursor: default;
+}
+
+.MainPage .AppResult {
+    margin-bottom: 64px;
+}
+
+.MainPage .ResultItem {
+    display: flex;
+    align-items: center;
+    padding: 8px 24px;
+    font-weight: 600;
+    cursor: default;
+    /* transition-duration: 0.2s; */
+    background-color: none;
+    border-radius: 8px;
+}
+
+.MainPage .ResultItem .LeftCont {
+    flex: 1
+}
+
+.MainPage .ResultItem .RoomNo {
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.MainPage .ResultItem .FreeUntilCont {
+    font-size: 13px;
+    line-height: 1;
+    text-align: right;
+}
+
+.MainPage .ResultItem i {
+    font-size: 32px;
+}
+
+.MainPage .AboutThisApp {
+    position: fixed;
+    bottom: 16px;
+    background-color: #878787;
+    right: 24px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+}
+
+@media(hover:none) {
+    .MainPage .ResultItem:active {
+        background-color: #494949;
+    }
+    .MainPage .ResultItem:hover {
+        background-color: #494949;
+    }
+}
+
+@media(hover:hover){
+    .MainPage .ResultItem:hover {
+        background-color: #494949;
+    }
+}
+
+@media(min-width:426px) {
+    .MainPage .scrollable {
+        padding: 0px calc((100% - 360px)/2) !important;
+    }
+    .MainPage .AppBar div {
+        margin-left: 64px;
+    }
+    .MainPage .AppNoticeCont {
+        margin: 64px 0px;
+    }
+}

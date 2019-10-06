@@ -1,0 +1,45 @@
+.DetailPage {
+    color: white;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+}
+
+.DetailPage .AppBar {
+    cursor: default;
+    background: #303030;
+    font-size: 19px;
+    height: 64px;
+    color: #F5F5F5;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+}
+
+.DetailPage i {
+    margin-right: 8px;
+}
+
+.DetailPage .AppContent {
+    height: calc(100% - 64px);
+    overflow: scroll;
+}
+
+.DetailPage .AppContent .scrollable {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 16px;
+    align-items: stretch;
+}
+
+@media(min-width:426px) {
+    .DetailPage .AppBar {
+        padding-left: 64px;
+    }
+    .DetailPage .AppContent .scrollable {
+        padding: 0px calc((100% - 360px)/2) !important;
+    }
+}
