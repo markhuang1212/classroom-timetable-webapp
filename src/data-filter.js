@@ -9,9 +9,44 @@ const getTimeTable = () => {
             timeTable[data.room] = [data.time]
         }
     })
-    console.log(timeTable)
     return timeTable
 }
+
+const filterDay = (data, day) => {
+    const dayTable = {
+        1: 'Mo',
+        2: 'Tu',
+        3: 'We',
+        4: 'Th',
+        5: 'Fr'
+    }
+    return data.filter(v => v.includes(dayTable[day]))
+}
+
+const extractTime = data => data.map(v => v.slice(v.length - 17))
+
+const formatTime = data => data.map(v => {
+    let [fst, sec] = v.split(' - ')
+    fst = fst.replace(':', '')
+    sec = sec.replace(':', '')
+    if (fst.includes('AM')) {
+        fst = fst.replace('AM', '')
+    } else {
+        fst = fst.replace('PM', '')
+        if (parseInt(fst) < 1200) {
+            fst = parseInt(fst) + 1200
+        }
+    }
+    if (sec.includes('AM')) {
+        sec = sec.replace('AM', '')
+    } else {
+        sec = sec.replace('PM', '')
+        if (parseInt(sec) < 1200) {
+            sec = parseInt(sec) + 1200
+        }
+    }
+    return `${fst} ${sec}`
+})
 
 const dataFilter = (date = new Date()) => {
     // date for debugging
@@ -56,7 +91,7 @@ const dataFilter = (date = new Date()) => {
             })
     }
 
-    console.log(filteredTimeTable)
+    // console.log(filteredTimeTable)
 
     const hour = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()
     const minute = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()
@@ -88,4 +123,4 @@ const dataFilter = (date = new Date()) => {
     return classroomList
 }
 
-export { dataFilter, getTimeTable }
+export { dataFilter, getTimeTable, filterDay, extractTime, formatTime }

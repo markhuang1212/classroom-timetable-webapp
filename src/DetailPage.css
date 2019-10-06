@@ -35,6 +35,66 @@
     align-items: stretch;
 }
 
+.DetailPage .RoomTitle {
+    margin-top: 32px;
+}
+
+.DetailPage .RoomTitle .desc {
+    font-size: 19px;
+}
+
+.DetailPage .RoomTitle .no {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.DetailPage .TimeViewer {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.DetailPage .TimeViewer .day {
+    color: #DCDCDC;
+    font-weight: 500;
+    font-size: 19px;
+    align-self: center;
+    margin-bottom: 12px;
+}
+
+.DetailPage .TimeViewer .ViewerBody {
+    display: flex;
+    align-items: center;
+}
+
+.DetailPage .TimeViewer .ViewerBody i {
+    font-size: 64px;
+    color: #747474;
+    margin: 0px;
+}
+
+.DetailPage .ViewerDiag {
+    flex: 1;
+    height: 360px;
+    background-color: #474747;
+    border-radius: 4px;
+    position: relative;
+}
+
+.DetailPage .textLeft {
+    color: #878787;
+    align-self: stretch;
+    margin-right: 4px;
+}
+
+.DetailPage .textRight {
+    width: 26px;
+    align-self: stretch;
+    color: #65CC2F;
+    margin-left: 4px;
+}
+
 @media(min-width:426px) {
     .DetailPage .AppBar {
         padding-left: 64px;
