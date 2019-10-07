@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './icon/MaterialIcons-Regular.woff2';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';

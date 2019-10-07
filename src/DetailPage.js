@@ -140,7 +140,7 @@ const DetailPage = props => {
                                         position: 'absolute',
                                         width: '100%',
                                         top: `${360 * calcMin('0900', _timeCode) / 720 - 8}px`
-                                    }}>{_timeCode.slice(0, 2)}:{timeCode.slice(2)}</div>)
+                                    }}>{timeCode.slice(0, 2)}:{timeCode.slice(2)}</div>)
                                 })()}
                             </div>
                             <i className="material-icons" onClick={() => onNextDay()} disabled={day == 5}>navigate_next</i>

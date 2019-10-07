@@ -108,13 +108,17 @@ const dataFilter = (date = new Date()) => {
         }
         if (free) {
             let until = 'End of Today'
+            let possibleUntils = []
             filteredTimeTable[roomname].forEach(v => {
                 let start = v.split(' ')[0]
                 if (start > now) {
-                    until = `${start.slice(0, 2)}:${start.slice(2)}`
-                    return
+                    possibleUntils.push(start)
                 }
             })
+            possibleUntils.sort()
+            if(possibleUntils[0]){
+                until = `${possibleUntils[0].slice(0,2)}:${possibleUntils[0].slice(2)}`
+            }
             classroomList.push({ room: roomname, free: true, until })
         } else {
             classroomList.push({ room: roomname, free: false })
