@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './DetailPage.css'
 import { getTimeTable, filterDay, extractTime, formatTime } from './data-filter.js'
-import { parse } from 'querystring'
 
 const DetailPage = props => {
     const dayTable = {

@@ -72,7 +72,9 @@ const MainPage = props => {
                             placeholder="Lift/Building/Room"></input>
                         <i className="material-icons" ref={searchButton}>arrow_forward</i>
                     </div>
-                    <div className="AppFilterButton" onClick={() => setFilter(!filter)}>Filter: {filter ? 'Free Classroom' : 'All'}</div>
+                    <div className="AppFilterButton" onClick={() => setFilter(!filter)}>
+                        Filter: {filter ? 'Free Classroom' : 'All'}
+                    </div>
                     <div className="AppResult">
                         {results.filter(v => v.room.toUpperCase().includes(inputText.toUpperCase()) || v.desc.toUpperCase().includes(inputText.toUpperCase()))
                             .filter(v => v.room != 'TBA')
