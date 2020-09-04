@@ -1,5 +1,7 @@
 # Find Classroom @ UST
 
+NOTE: Out of maintance.
+
 > A webapp that helps people to find free classrooms at HKUST Campus
 
 ## Source of Data
